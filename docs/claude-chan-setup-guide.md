@@ -433,7 +433,7 @@ npx --version
 
 ### 8-2. API キーをコピー
 
-登録後、ダッシュボード（https://api-dashboard.search.brave.com/app/dashboard）にアクセスし、**「API Keys」から API キーをコピーしてメモ**しておきます。
+登録後、[ダッシュボード](https://api-dashboard.search.brave.com/app/dashboard)にアクセスし、左サイドメニューの「API Keys」を開き、 コピーボタンをクリックしてAPI キーをコピーしてメモしておきます。
 
 ![Brave API キーのコピー](screenshot/06_brave/61_copy_brave_api_key.png)
 
