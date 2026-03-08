@@ -262,7 +262,7 @@ VS Code が開きました！
 
 ![Open ダイアログ](screenshot/02_vscode/30_dialog.png)
 
-> 💡 途中で確認ダイアログが出た場合は、あわてずに「はい」「Yes」「承諾する」「同意する」「Allow」などを選択してください。
+> 💡 途中で確認ダイアログが出た場合は、あわてずに同意チェックをつけて、「はい」「Yes」「承諾する」「同意する」「Allow」「trust」などを選択してください。
 
 ![信頼確認ダイアログ](screenshot/02_vscode/31_trust_confirm_dialog.png)
 
@@ -272,7 +272,9 @@ VS Code が開きました！
 
 ### 4-1. Copilot ホーム画面に戻る
 
-先ほど開いておいた Copilot のホーム画面（https://github.com/copilot）に戻り、**右上のダウンロードボタン**をクリックします。
+![Copilot ホーム画面](screenshot/01_gihub/11_github_com_copilot_home.png)
+
+先ほど開いておいた Copilot のホーム画面github.com/copilotに戻り、**右上のダウンロードボタン**をクリックします。
 
 ![Copilot ホームのダウンロードボタン](screenshot/04_copilot/41_From_github_com_copilot_home__click_the_vscode_button_in_the_top_right_corner.png)
 
@@ -411,7 +413,7 @@ npx --version
 
 ![実行ポリシーと npx バージョン確認](screenshot/05_terminal/56_set_execution_policy_and_npx_version.png)
 
-> 💡 実行ポリシーの変更は「スクリプトの実行を許可しますか？」という意味です。`Y` を押して承認してください。
+> 💡 実行ポリシーの変更は「スクリプトの実行を許可しますか？」という意味です。確認メッセージが出た場合、`Y` を押して承認してください。
 
 ---
 
@@ -621,7 +623,7 @@ Remove-Item _tmp, repo.zip -Recurse -Force
 
 ### 12-2. お子様の名前に書き換え
 
-**`Ctrl` + `Shift` + `E`** の 3 キーを同時に押して、`.github/copilot-instructions.md` を開きます。
+**`Ctrl` + `Shift` + `E`** の 3 キーを同時に押して、ファイルのエクスプローラーを開き、.githubフォルダにあるcopilot-instructions.mdをクリックして開きます。
 
 **`Ctrl` + `H`** を押して一括置換 UI を開き、「たろうくん」をお子様の名前に書き換えてください。
 
