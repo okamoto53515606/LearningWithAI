@@ -39,6 +39,7 @@ desktop.ini
 .vscode/launch.json
 .vscode/tasks.json
 .vscode/*.code-workspace
+.vscode/mcp.json
 
 # ダウンロード画像・音声（容量が大きいため除外）
 images/
