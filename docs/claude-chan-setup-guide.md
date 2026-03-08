@@ -164,9 +164,13 @@ Copilot のホーム画面が表示されます。**右上のダウンロード�
 
 ### 2-1. Git をインストール
 
-まず Terminal（コマンドプロンプト）を開きます。Windows キーを押して「powershell」と入力し、**「Windows PowerShell」** を起動してください。
+まず PowerShell を開きます。
 
-以下のコマンドを貼り付けて Enter キーを押します。
+**スタートメニュー検索（最速）：** `Windows キー` を押して「powershell」と入力し、検索結果の **「Windows PowerShell」** を選択します。
+
+![PowerShell を開いてインストール](screenshot/02_vscode/20_powershell.png)
+
+PowerShell が開いたら、以下のコマンドをコピー＆貼り付けして Enter キーを押します。
 
 ```
 winget install --id Git.Git -e
