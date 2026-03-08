@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+
+# uv / venv
+.venv/
+venv/
+.python-version
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy / ruff
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VSCode (ユーザー設定はリポジトリ管理しない)
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/*.code-workspace
+
+# ダウンロード画像・音声（容量が大きいため除外）
+images/
+sounds/
+
+# ログ・一時ファイル
+*.log
+*.tmp
+*.bak
+
+# .github は管理対象（除外しない）
+!.github/

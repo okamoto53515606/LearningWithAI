@@ -1,0 +1,18 @@
+{
+  "servers": {
+    "brave-search": {
+    "command": "npx",
+      "args": [
+        "-y",
+        "@brave/brave-search-mcp-server"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "ここにAPIキーをいれる"
+      }
+    },
+    "voicevox": {
+      "command": "uvx",
+      "args": ["mcp-server-voicevox", "--voicevox-url=http://localhost:50021"]
+    }
+  }
+}
