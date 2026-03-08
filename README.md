@@ -4,12 +4,12 @@ Claude Opus 4.6（くろーどちゃん）とお子様が一緒にプログラ�
 
 ---
 
-## 📖 関連記事
+## �️ セットアップ手順
 
-**[【親子プログラミング第1回】VSCode Copilot×Claudeを最高の遊び場に！小1息子のためのAI環境構築編](https://www.okamomedia.tokyo/articles/3vscode-copilot1ai)**
+詳しいセットアップ手順は [docs/claude-chan-setup-guide.md](docs/claude-chan-setup-guide.md) をご覧ください。
 
 ---
 
-## 🛠️ セットアップ手順
+## 📖 関連記事
 
-詳しいセットアップ手順は [docs/claude-chan-setup-guide.md](docs/claude-chan-setup-guide.md) をご覧ください。
+**[【親子プログラミング第1回】VSCode Copilot×Claudeを最高の遊び場に！小1息子のためのAI環境構築編](https://www.okamomedia.tokyo/articles/3vscode-copilot1ai)**
