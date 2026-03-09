@@ -14,8 +14,8 @@
 
 | # | 内容 | 概要 |
 |---|------|------|
-| 1 | [GitHub アカウント作成・Copilot Pro 登録](#1-github-アカウントの作成と-copilot-pro-の登録) | AI を使うためのメインアカウント |
-| 2 | [Git のインストール](#2-git-のインストール) | ファイル管理ツール（必須） |
+| 1 | [Git のインストール](#1-git-のインストール) | ファイル管理ツール（必須） |
+| 2 | [GitHub アカウント作成・Copilot Pro 登録](#2-github-アカウントの作成と-copilot-pro-の登録) | AI を使うためのメインアカウント |
 | 3 | [VS Code インストール・リポジトリのクローン](#3-vs-code-のインストールとリポジトリのクローン) | プログラミング用エディタの準備 |
 | 4 | [GitHub Copilot と VS Code の連携](#4-github-copilot-と-vs-code-の連携) | AI チャット機能の有効化 |
 | 5 | [Terminal の使い方](#5-terminal-の使い方) | コマンド入力画面を開く方法 |
@@ -30,7 +30,35 @@
 
 ---
 
-## 1. GitHub アカウントの作成と Copilot Pro の登録
+## 1. Git のインストール
+
+### Git とは？
+
+**Git（ギット）** は、ファイルの変更履歴を管理するツールです。VS Code で「リポジトリをクローン（コピー）する」機能を使うには、Git が PC にインストールされている必要があります。VS Code には Git の操作画面が内蔵されていますが、**Git 本体は別途インストールが必要**です。
+
+---
+
+### 1-1. Git をインストール
+
+まず PowerShell を開きます。
+
+**スタートメニュー検索（最速）：** `Windows キー` を押して「powershell」と入力し、検索結果の **「Windows PowerShell」** を選択します。
+
+![PowerShell を開いてインストール](screenshot/02_vscode/20_powershell.png)
+
+PowerShell が開いたら、以下のコマンドをコピー＆貼り付けして Enter キーを押します。
+
+```
+winget install --id Git.Git -e
+```
+
+> 💡 途中で確認ダイアログが出た場合は、あわてずに「Y」や「はい」を選択してください。
+
+> ⚠️ **インストール完了後、PC を再起動してください。** 環境変数を正しく反映させるために必要です。再起動後、次の手順に進んでください。
+
+---
+
+## 2. GitHub アカウントの作成と Copilot Pro の登録
 
 ### GitHub とは？
 
@@ -38,7 +66,7 @@
 
 ---
 
-### 1-1. アカウント作成
+### 2-1. アカウント作成
 
 👉 https://github.com/signup をブラウザで開きます。
 
@@ -50,7 +78,7 @@
 
 ---
 
-### 1-2. メール認証
+### 2-2. メール認証
 
 登録したメールアドレスに認証コードが届きます。コードをコピーして、画面に貼り付けてください。
 
@@ -58,7 +86,7 @@
 
 ---
 
-### 1-3. ログイン
+### 2-3. ログイン
 
 👉 https://github.com/login からログインします。
 
@@ -66,7 +94,7 @@
 
 ---
 
-### 1-4. リポジトリの作成
+### 2-4. リポジトリの作成
 
 ログイン後のダッシュボード画面から **「Create Repository」** を押します。
 
@@ -76,7 +104,7 @@
 
 ---
 
-### 1-5. リポジトリ名の入力
+### 2-5. リポジトリ名の入力
 
 リポジトリ名（例：`LearningWithAI`）を入力し、**「Create Repository」** を押します。
 
@@ -86,7 +114,7 @@
 
 ---
 
-### 1-6. リポジトリの URL をコピー
+### 2-6. リポジトリの URL をコピー
 
 コピーボタンでリポジトリの URL（例：`https://github.com/xxxx/LearningWithAI.git`）をコピーし、**メモ帳などに保存**しておきます（後で使います）。
 
@@ -94,7 +122,7 @@
 
 ---
 
-### 1-7. Copilot の設定メニューを開く
+### 2-7. Copilot の設定メニューを開く
 
 右上のロボットのようなアイコンをクリックし、**「Settings」** を選択します。
 
@@ -102,7 +130,7 @@
 
 ---
 
-### 1-8. Copilot の Features 画面を開く
+### 2-8. Copilot の Features 画面を開く
 
 左メニューの **Copilot → Features** を選択します。
 
@@ -110,7 +138,7 @@
 
 ---
 
-### 1-9. Copilot Pro の登録
+### 2-9. Copilot Pro の登録
 
 **「Try Copilot Pro」** を選択します（月額 10 ドルのプランです）。
 
@@ -138,7 +166,7 @@
 
 ---
 
-### 1-10. Copilot Pro を有効化
+### 2-10. Copilot Pro を有効化
 
 画面右側に **「Activate now」** ボタンが出ますので、クリックして有効化します。
 
@@ -146,39 +174,11 @@
 
 ---
 
-### 1-11. Copilot ホーム画面
+### 2-11. Copilot ホーム画面
 
 Copilot のホーム画面が表示されます。**右上のダウンロードマークは VS Code のインストール後に使います**。この画面はそのままにして、別の新しいタブを開いてください。
 
 ![Copilot ホーム画面](screenshot/01_gihub/11_github_com_copilot_home.png)
-
----
-
-## 2. Git のインストール
-
-### Git とは？
-
-**Git（ギット）** は、ファイルの変更履歴を管理するツールです。VS Code で「リポジトリをクローン（コピー）する」機能を使うには、Git が PC にインストールされている必要があります。VS Code には Git の操作画面が内蔵されていますが、**Git 本体は別途インストールが必要**です。
-
----
-
-### 2-1. Git をインストール
-
-まず PowerShell を開きます。
-
-**スタートメニュー検索（最速）：** `Windows キー` を押して「powershell」と入力し、検索結果の **「Windows PowerShell」** を選択します。
-
-![PowerShell を開いてインストール](screenshot/02_vscode/20_powershell.png)
-
-PowerShell が開いたら、以下のコマンドをコピー＆貼り付けして Enter キーを押します。
-
-```
-winget install --id Git.Git -e
-```
-
-> 💡 途中で確認ダイアログが出た場合は、あわてずに「Y」や「はい」を選択してください。
-
-> ⚠️ **インストール完了後、PowerShell をいったん閉じてください。** 次に VS Code を開いたとき、Git が自動で認識されます。
 
 ---
 
@@ -433,7 +433,27 @@ npx --version
 
 ### 8-2. API キーをコピー
 
-登録後、[ダッシュボード](https://api-dashboard.search.brave.com/app/dashboard)にアクセスし、左サイドメニューの「API Keys」を開き、 コピーボタンをクリックしてAPI キーをコピーしてメモしておきます。
+登録後、[ダッシュボード](https://api-dashboard.search.brave.com/app/dashboard)にアクセスし、左サイドメニューの **「API Keys」** を開きます。
+
+**「No subscription found」** の画面が表示されます。**「See Plans」** ボタンを押します。
+
+![No subscription found](screenshot/06_brave/63_click_see_plans.png)
+
+プラン選択画面が表示されます。**月 $5 のプラン**を選択し、**「Get Started」** ボタンをクリックします。
+
+![プラン選択](screenshot/06_brave/64_Includes_free_5dollar_in_credits_every_month.png)
+
+> 💡 **「includes free $5 in credits every month」** と記載があります。月 $5 の無料枠内で利用できる見込みです。
+
+**「Confirm subscription」** 画面が表示されます。**「Subscribe」** ボタンをクリックします。
+
+![Confirm subscription](screenshot/06_brave/65_check_and_click_subscribe_button.png)
+
+クレジットカード入力画面が表示されます。カード情報を入力して **「保存」** ボタンを押します。
+
+![クレジットカード入力](screenshot/06_brave/66_input_credit_card_info_and_click_save_button.png)
+
+サブスクリプション登録が完了すると **「API Keys」** 画面が表示されます。**「Add API key」** ボタンで API キーを追加し、コピーボタンをクリックして API キーをコピーしてメモしておきます。
 
 ![Brave API キーのコピー](screenshot/06_brave/61_copy_brave_api_key.png)
 
