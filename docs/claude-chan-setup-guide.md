@@ -473,8 +473,6 @@ npx --version
 
 👉 https://voicevox.hiroshiba.jp/ にアクセスし、**右上のダウンロードボタン**を押します。
 
-![VOICEVOX ダウンロード](screenshot/07_voicebox/71_download_voicebox.png)
-
 ---
 
 ### 9-2. インストーラーを選択
@@ -485,7 +483,9 @@ OS や CPU の選択画面が出ます。**よくわからなければ「CPU」�
 
 > 💡 ダウンロードにはしばらく時間がかかります。完了後、インストーラーをダブルクリックして起動し、画面の指示に従ってインストールしてください（すべて初期値のままで OK です）。
 
-> 💡 VOICEVOX 起動後に規約確認画面が出たら、**「同意して使用開始」** ボタンを押してください。
+> 💡 VOICEVOX 起動後に規約確認画面が出たら、「同意して使用開始」ボタンを押してください。
+
+![VOICEVOX 利用規約](screenshot/07_voicebox/71_download_voicebox.png)
 
 ---
 
