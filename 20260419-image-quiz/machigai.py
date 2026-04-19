@@ -588,9 +588,12 @@ def draw_game():
         return
 
     if game_clear:
-        text = font_big.render("ぜんもん せいかい！すごい！！", True, GREEN)
+        if score == len(questions):
+            text = font_big.render("ぜんもん せいかい！すごい！！", True, GREEN)
+        else:
+            text = font_big.render("おわり！がんばったね！", True, GREEN)
         screen.blit(text, (WIDTH // 2 - text.get_width() // 2, HEIGHT // 2 - 60))
-        text2 = font_medium.render(f"スコア：{score} もん せいかい！", True, BLACK)
+        text2 = font_medium.render(f"スコア：{score} / {len(questions)} もん せいかい！", True, BLACK)
         screen.blit(text2, (WIDTH // 2 - text2.get_width() // 2, HEIGHT // 2 + 10))
         text3 = font_small.render("クリックで もういちど あそぶ", True, DARK_GRAY)
         screen.blit(text3, (WIDTH // 2 - text3.get_width() // 2, HEIGHT // 2 + 60))
@@ -659,7 +662,7 @@ def draw_game():
         overlay.fill((255, 255, 255, 150))
         screen.blit(overlay, (0, 0))
 
-        if "せいかい" in message:
+        if message == "せいかい！":
             # おおきな ○（マル）
             pygame.draw.circle(screen, GREEN, (WIDTH // 2, HEIGHT // 2 - 30), 150, 20)
             msg_color = GREEN
