@@ -1,0 +1,15 @@
+[project]
+name = "20260426-dice-quiz"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.4.4",
+    "pygame>=2.6.1",
+]
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.20.0",
+]
