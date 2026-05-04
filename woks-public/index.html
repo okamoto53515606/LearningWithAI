@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>たろうのゲームひろば</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif;
+      background: linear-gradient(135deg, #fff8e7 0%, #ffe4f0 50%, #e4f0ff 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      color: #d43f7a;
+      text-shadow: 3px 3px 0 #ffb3d1;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #888;
+      margin-bottom: 48px;
+    }
+    .games {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      width: 380px;
+      padding: 36px 32px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.18s, box-shadow 0.18s;
+      border: 4px solid transparent;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+    }
+    .card.kanji { border-color: #64b5f6; }
+    .card.gekimuzu { border-color: #ff8a65; }
+    .card-emoji { font-size: 4rem; margin-bottom: 16px; }
+    .card-title {
+      font-size: 1.7rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .card.kanji .card-title { color: #1976d2; }
+    .card.gekimuzu .card-title { color: #e64a19; }
+    .card-desc {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .card-badge {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: white;
+    }
+    .card.kanji .card-badge { background: #64b5f6; }
+    .card.gekimuzu .card-badge { background: #ff8a65; }
+    footer {
+      text-align: center;
+      margin-top: 64px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎮 たろうのゲームひろば</h1>
+  <p class="subtitle">AIといっしょにつくったゲームだよ！あそんでね！</p>
+
+  <div class="games">
+    <a href="kanji-quiz/" class="card kanji">
+      <div class="card-emoji">📝</div>
+      <div class="card-title">かんじクイズ</div>
+      <div class="card-desc">
+        ふたつのかんじ、どっちがただしい？<br>
+        1ねんせい〜2ねんせいの かんじがでるよ！
+      </div>
+      <span class="card-badge">あそぶ →</span>
+    </a>
+
+    <a href="gekimuzu/" class="card gekimuzu">
+      <div class="card-emoji">⏱️</div>
+      <div class="card-title">げきムズ！タイムアタック</div>
+      <div class="card-desc">
+        20びょうで10もん ノーミスでクリアできる？<br>
+        さんすう・こくご・まちがいさがし・きせつ ぜんぶでる！
+      </div>
+      <span class="card-badge">あそぶ →</span>
+    </a>
+  </div>
+
+  <footer>Made with AI 🤖 &amp; たろう ✨</footer>
+</body>
+</html>

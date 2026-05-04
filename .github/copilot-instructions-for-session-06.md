@@ -338,3 +338,77 @@ uv run --project "c:\Users\okamo\OneDrive\デスクトップ\LearningWithAI\2026
 
 *このファイルは おとうさんが かんりします。*
 *たろうくん、いっしょにたのしもうね！🎉*
+
+---
+
+## 【pygbag WEB公開 技術メモ】（2026/05/04 追記）
+
+### pygbagとは
+pygame製ゲームをブラウザで遊べるWebAssembly形式に変換するツール。
+`uv add --dev pygbag` でインストール可能。
+
+### WEB公開手順
+
+```powershell
+# 1. ゲームファイルだけのフォルダを作る（.venv を含まないこと！）
+#    game-src/ に main.py・claude_draw.py・font.ttf だけを置く
+
+# 2. ビルド＆ローカルサーバー起動
+$env:PYTHONUTF8 = "1"
+uv run --project "プロジェクトフォルダ" python -m pygbag "game-src\main.py"
+
+# 3. ブラウザで http://localhost:8000/ を開く（初回ロード1〜2分）
+```
+
+### アップロードするファイル（公開するフォルダ）
+
+```
+game-src/build/web/     ← このフォルダの中身をまるごとアップロード
+    index.html          ← ゲームのHTMLページ
+    game-src.apk        ← ゲームデータ
+    game-src.tar.gz     ← ゲームデータ（itch.io以外向け）
+    favicon.png         ← アイコン
+```
+
+**itch.io の場合：** `build/web/` フォルダをzipにしてアップロード → HTMLゲームとして公開できる。
+
+### コード変換のルール（Windows版→Web版）
+
+| 変更前（Windows版） | 変更後（Web版） | 理由 |
+|---|---|---|
+| `import numpy as np` | 削除 | `pygame.sndarray`がWASM非対応でクラッシュ |
+| `pygame.sndarray.make_sound()` | `SND_XX = None` に置き換え | 同上 |
+| `pygame.mixer.init(...)` | 削除 | 同上 |
+| `if SND_XX: SND_XX.play()` | そのまま（Noneチェック済み） | Noneなら何も起きない |
+| `def main():` | `async def main():` | pygbag必須 |
+| `while running:` ループの末尾 | `await asyncio.sleep(0)` を追加 | ブラウザに制御を返すため |
+| `if __name__=="__main__": main()` | `asyncio.run(main())` | pygbag必須 |
+| フォントパス（Windowsシステムフォント） | ローカルの `font.ttf` を優先 | WebにWindowsフォントは存在しない |
+
+### 日本語フォントのダウンロード（BIZ UD Gothic）
+
+```powershell
+curl.exe -L "https://github.com/google/fonts/raw/main/ofl/bizudpgothic/BIZUDPGothic-Regular.ttf" -o "game-src\font.ttf"
+```
+※ファイルサイズ約4.5MB。先頭4バイトが `0 1 0 0` なら正常なTTF。
+
+### ハマりポイントと対策
+
+| 問題 | 原因 | 対策 |
+|---|---|---|
+| `UnicodeDecodeError: cp932` | 日本語WindowsのエンコーディングとpygbagのPython読み込みが衝突 | `$env:PYTHONUTF8 = "1"` を先に設定する |
+| pygbagが長時間終わらない | `.venv` フォルダを丸ごとスキャンしてしまう | ゲームファイルだけの `game-src/` サブフォルダを作り、そこを指定する |
+| `Unsupported device pixel ratio 1.25` | Windows 125%表示スケール設定と pygame-ce WASM の衝突 | `index.html` の先頭に `Object.defineProperty(window,'devicePixelRatio',{get:()=>1.0})` を注入する（pygbag再ビルド後は再注入が必要） |
+| グレー画面のまま止まる | `numpy` + `pygame.sndarray` がWASM環境でクラッシュ | `numpy` を完全に除去。サウンドは `SND_XX = None` でスキップ |
+| numpy wheelをダウンロードするのに時間がかかる | `import numpy` があるとpygbagが自動ダウンロード | `numpy` をコードから完全に削除することで不要になる |
+
+### ビルド後に毎回必要な index.html パッチ
+
+```powershell
+# pygbag再ビルド後にこのコマンドを実行してdpi問題を修正する
+$f = "game-src\build\web\index.html"
+$patch = "<html lang=`"en-us`"><script>`nObject.defineProperty(window, 'devicePixelRatio', { get: function() { return 1.0; } });`n</script>"
+(Get-Content $f -Raw) -replace '<html lang="en-us">', $patch | Set-Content $f -Encoding UTF8
+Write-Host "パッチ完了"
+```
+
