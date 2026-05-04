@@ -412,3 +412,72 @@ $patch = "<html lang=`"en-us`"><script>`nObject.defineProperty(window, 'devicePi
 Write-Host "パッチ完了"
 ```
 
+---
+
+### セッション終了後にWEB化する際の手順（父→くろーどちゃんへ依頼するとき）
+
+#### 作業の全体像
+
+1. pygbagでビルド（既存の手順通り）
+2. ビルドファイルを `docs/<フォルダ名>/` にコピー
+3. `docs/index.html` に新しいリンク行を1行追加
+4. コミット＆push
+
+#### ステップ①：ビルドとDPRパッチ
+
+```powershell
+# ゲームフォルダ（main.pyだけのフォルダ）を指定してビルド
+$env:PYTHONUTF8 = "1"
+uv run --project "プロジェクトフォルダ" python -m pygbag "ゲームフォルダ\main.py"
+
+# DPRパッチ（ビルドごとに毎回必要）
+$f = "ゲームフォルダ\build\web\index.html"
+(Get-Content $f -Raw) -replace '<html lang="en-us">', '<html lang="en-us"><script>Object.defineProperty(window,''devicePixelRatio'',{get:function(){return 1.0;}});</script>' | Set-Content $f -Encoding UTF8
+Write-Host "パッチ完了"
+```
+
+#### ステップ②：docsにコピー
+
+```powershell
+# フォルダ名は作品の内容に合わせて決める（英字・ハイフン）
+$name = "my-new-game"   # ← ここを変更
+$src  = "ゲームフォルダ\build\web"
+$dst  = "LearningWithAI\docs\$name"
+
+New-Item -ItemType Directory -Path $dst -Force
+Copy-Item "$src\*" $dst -Force
+```
+
+#### ステップ③：docs/index.html にリンクを追記
+
+`docs/index.html` の `<!-- 新しい作品はここに追加する -->` の直下に以下を追加：
+
+```html
+<a href="my-new-game/" class="item">
+  <div class="item-emoji">🎮</div>
+  <div class="item-body">
+    <div class="item-title">作品タイトル（ひらがな）</div>
+    <div class="item-desc">一行の説明</div>
+  </div>
+  <div class="item-date">YYYY/MM/DD</div>
+</a>
+```
+
+#### ステップ④：コミット＆push
+
+```powershell
+Set-Location "LearningWithAI"
+git add docs/
+git commit -m "Add <作品名> web game"
+git push origin main
+```
+
+#### 注意点
+
+| 注意 | 内容 |
+|---|---|
+| フォルダ名 | 英字・ハイフンのみ。日本語・スペース不可（URLになるため） |
+| DPRパッチ | ビルドのたびに index.html が上書きされる。**コピー前ではなく、コピー後**のファイルにパッチを当てること |
+| index.htmlの追加順 | 上に追加すると「新しい順」になる |
+| ゲーム以外もOK | ゲームでなくてもリストに追加していい（アニメ・クイズ・絵など何でも） |
+
