@@ -1,0 +1,16 @@
+[project]
+name = "20260506-naninani-quiz"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.4.4",
+    "pygame>=2.6.1",
+]
+
+[dependency-groups]
+dev = [
+    "pygbag>=0.9.3",
+    "pyinstaller>=6.20.0",
+]
