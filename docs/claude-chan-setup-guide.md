@@ -554,14 +554,11 @@ VS Code を開いた状態で **`Ctrl` + `Shift` + `P`** を押します。
 
 ## 11. Claude のテスト
 
-### 11-1. Claude Opus 4.6 を選択
+### 11-1. Claude Sonnet 4.5 を選択
 
-右下のチャット欄にて、**Claude Opus 4.6** を選択します。
+右下のチャット欄にて、**Claude Sonnet 4.5* を選択します。
 
-![Claude Opus 4.6 選択](screenshot/09_claude/91_select_claude_opus_46.png)
-
-> 💡 **Claude Opus 4.6 とは？**  
-> Anthropic 社が 2026 年 2 月に発表した最新の最上位 AI モデルです。最大 100 万トークンの長文処理、自動最適化される「適応的思考（Adaptive Thinking）」、エージェント連携機能を搭載し、複雑な推論・コーディング業務に特化した高い信頼性を持つのが特徴です。
+![Claude Sonnet 4.5 選択](screenshot/09_claude/91_select_claude_opus_46.png)
 
 ---
 
