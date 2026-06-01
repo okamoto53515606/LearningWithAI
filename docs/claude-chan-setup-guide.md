@@ -554,11 +554,11 @@ VS Code を開いた状態で **`Ctrl` + `Shift` + `P`** を押します。
 
 ## 11. Claude のテスト
 
-### 11-1. Claude Sonnet 4.5 を選択
+### 11-1. Claude Sonnet 4.6 を選択
 
-右下のチャット欄にて、**Claude Sonnet 4.5** を選択します。
+右下のチャット欄にて、**Claude Sonnet 4.6** を選択します。
 
-![Claude Sonnet 4.5 選択](screenshot/09_claude/91_select_claude_opus_46.png)
+![Claude Sonnet 4.6 を選択](screenshot/09_claude/91_select_claude_opus_46.png)
 
 ---
 
